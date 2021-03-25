@@ -1,5 +1,6 @@
 package ro.ase.cts.main;
 
+import ro.ase.cts.clase.Bormasina;
 import ro.ase.cts.clase.DepartamentFinanciarEager;
 import ro.ase.cts.clase.DepartamentFinanciarLazy;
 
@@ -29,6 +30,19 @@ public class Main {
 		
 		System.out.println(primulDepartamentFinanciarLazy.toString());
 		System.out.println(alDoileaDepartamentFinanciarLazy.toString());
+		
+		
+		Bormasina primaBormasina = Bormasina.getInstance("Bosch", 550, 150);
+		Bormasina aDouaBormasina = Bormasina.getInstance("Steinhaus", 650, 90);
+		
+		System.out.println(primaBormasina.toString());
+		System.out.println(aDouaBormasina.toString());
+		
+		primaBormasina.setPret(1000);
+		aDouaBormasina.setPutere(700);
+		
+		System.out.println(primaBormasina.toString());
+		System.out.println(aDouaBormasina.toString());
 	}
 
 }
