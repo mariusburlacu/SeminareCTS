@@ -9,5 +9,4 @@ public class Main {
 		System.out.println(reteta1.toString());
 		System.out.println(reteta2.toString());
 	}
-
 }
