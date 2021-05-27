@@ -12,6 +12,7 @@ public class Main {
 	public static void main(String[] args) {
 		LeasingAdapter adapter = new LeasingAdapter("George");
 		afiseazaInformatiiCredit(adapter);
+		
 	}
 
 }
