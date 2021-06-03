@@ -116,5 +116,5 @@ public class GrupaTests {
 		assertNotNull(grupa.getStudenti());
 	}
 	
-	
+
 }
