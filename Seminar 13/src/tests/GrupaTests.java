@@ -4,7 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+import categorii.TesteGetPromovabilitate;
+import categorii.TesteNormale;
+import categorii.TesteUrgente;
 import clase.Grupa;
 import clase.Student;
 
@@ -26,6 +30,7 @@ public class GrupaTests {
 	// TESTE PENTRU METODA GET PROMOVABILITATE
 	
 	@Test
+	@Category({TesteGetPromovabilitate.class})
 	public void testGetPromovabilitate() {
 		Student student = new Student("Marcel");
 		student.adaugaNota(10);
@@ -41,12 +46,14 @@ public class GrupaTests {
 		assertEquals(0.16, grupa.getPromovabilitate(), 0.05);
 	}
 	
-	@Test
+	@Test 
+	@Category({TesteGetPromovabilitate.class, TesteUrgente.class})
 	public void testGetPromovabilitateLowerBoundary() {
 		assertEquals(0,  grupa.getPromovabilitate(), 0.05);
 	}
 	
 	@Test
+	@Category({TesteGetPromovabilitate.class, TesteNormale.class})
 	public void testGetPromovabilitateUpperBoundary() {
 		Grupa grupa = new Grupa(1077);
 		
@@ -62,12 +69,14 @@ public class GrupaTests {
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
+	@Category({TesteGetPromovabilitate.class})
 	public void testGetPromovabilitateError() {
 		Grupa grupaNoua = new Grupa(1032);
 		grupaNoua.getPromovabilitate();
 	}
 
 	@Test(timeout = 500)
+	@Category({TesteGetPromovabilitate.class})
 	public void testGetPromovabilitateTime() {
 		grupa.getPromovabilitate();
 	}
@@ -75,12 +84,14 @@ public class GrupaTests {
 	// TESTE PENTRU CONSTRUCTORUL GRUPA
 
 	@Test
+	@Category({TesteUrgente.class})
 	public void testConstructorRight() {
 		Grupa grupa = new Grupa(1077);
 		assertEquals(1077, grupa.getNrGrupa());
 	}
 	
 	@Test
+	@Category({TesteNormale.class})
 	public void testLimitaInferioara() {
 		Grupa grupa = new Grupa(1000);
 		assertEquals(1000, grupa.getNrGrupa());
